@@ -1,0 +1,16 @@
+version: '3.3'
+# PORT_EXT (33306):POR_INT(3306)
+# 0.0.0.0: 33306
+# sudo docker-compose ps
+# sudo docker-compose down
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "33306:3306"
+    volumes:
+      - /home/mlopeza/Documentos/mysql/data:/var/lib/mysql
